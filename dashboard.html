@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <title>Seller Dashboard | BD AQAR</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="seller-dashboard-page">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="navbar-container">
+
+            <a href="index.html" class="logo">
+                BD <span>AQAR</span>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="properties.html">Properties</a>
+
+                <a href="dashboard.html" class="active">
+                    Dashboard
+                </a>
+
+                <a href="add-property.html">
+                    Add Property
+                </a>
+
+            </nav>
+
+            <div class="nav-user">
+
+                <div class="user-avatar">
+                    S
+                </div>
+
+                <span>Seller</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="dashboard-container">
+
+
+        <!-- ================= DASHBOARD HEADER ================= -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="section-label">
+                    SELLER DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome back, Seller 👋
+                </h1>
+
+                <p>
+                    Manage your properties, requests and listings
+                    from one place.
+                </p>
+
+            </div>
+
+
+            <a href="add-property.html" class="dashboard-add-btn">
+                + Add Property
+            </a>
+
+        </section>
+
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="dashboard-stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏠
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Properties
+                    </p>
+
+                    <h2>
+                        8
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <p>
+                        Active Listings
+                    </p>
+
+                    <h2>
+                        5
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>
+                        Pending Review
+                    </p>
+
+                    <h2>
+                        2
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📩
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Requests
+                    </p>
+
+                    <h2>
+                        14
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= DASHBOARD LAYOUT ================= -->
+
+        <section class="dashboard-layout">
+
+
+            <!-- ================= SIDEBAR ================= -->
+
+            <aside class="dashboard-sidebar">
+
+                <div class="sidebar-menu">
+
+                    <a href="dashboard.html" class="sidebar-link active">
+                        📊
+                        <span>Overview</span>
+                    </a>
+
+
+                    <a href="my-properties.html" class="sidebar-link">
+                        🏠
+                        <span>My Properties</span>
+                    </a>
+
+                    <a href="add-property.html" class="sidebar-link">
+                        ➕
+                        <span>Add Property</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        📩
+                        <span>Requests</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        ❤️
+                        <span>Favorites</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        🔔
+                        <span>Notifications</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        👤
+                        <span>Profile</span>
+                    </a>
+
+                    <a href="index.html" class="sidebar-link logout-link">
+                        🚪
+                        <span>Logout</span>
+                    </a>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- ================= DASHBOARD CONTENT ================= -->
+
+            <div class="dashboard-content">
+
+
+                <!-- ================= PERFORMANCE ================= -->
+
+                <div class="dashboard-section">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <h2>
+                                Performance
+                            </h2>
+
+                            <p>
+                                Your property activity overview.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-grid">
+
+
+                        <div class="performance-card">
+
+                            <span>
+                                👁️
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Property Views
+                                </p>
+
+                                <strong>
+                                    1,248
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="performance-card">
+
+                            <span>
+                                ❤️
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Favorites
+                                </p>
+
+                                <strong>
+                                    86
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="performance-card">
+
+                            <span>
+                                📩
+                            </span>
+
+                            <div>
+
+                                <p>
+                                    Visit Requests
+                                </p>
+
+                                <strong>
+                                    14
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= MY PROPERTIES ================= -->
+
+                <div class="dashboard-section">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <h2>
+                                My Properties
+                            </h2>
+
+                            <p>
+                                Recently added properties.
+                            </p>
+
+                        </div>
+
+                        <a href="#" class="view-all">
+                            View All →
+                        </a>
+
+                    </div>
+
+
+                    <div class="properties-table">
+
+
+                        <!-- PROPERTY 1 -->
+
+                        <div class="property-row">
+
+                            <div class="property-info">
+                                <div class="property-image">
+                                    <img
+                                        src="images/property1.jpg"
+                                        alt="Modern Villa">
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Modern Villa
+                                    </h3>
+
+                                    <p>
+                                        Annaba, Algeria
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="property-price">
+
+                                <strong>
+                                    20,000,000 DZD
+                                </strong>
+
+                            </div>
+
+
+                            <div class="property-status active-status">
+
+                                Active
+
+                            </div>
+
+
+                            <div class="property-actions">
+
+                                <a href="property-details.html">
+                                    View
+                                </a>
+
+                                <a href="#">
+                                    Edit
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- PROPERTY 2 -->
+
+                        <div class="property-row">
+
+                            <div class="property-info">
+
+                                <div class="property-image">
+                                    <img
+                                        src="images/property2.jpg"
+                                        alt="Family Apartment">
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Family Apartment
+                                    </h3>
+
+                                    <p>
+                                        Constantine, Algeria
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="property-price">
+
+                                <strong>
+                                    8,500,000 DZD
+                                </strong>
+
+                            </div>
+
+
+                            <div class="property-status pending-status">
+
+                                Pending
+
+                            </div>
+
+
+                            <div class="property-actions">
+
+                                <a href="#">
+                                    View
+                                </a>
+
+                                <a href="#">
+                                    Edit
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- PROPERTY 3 -->
+
+                        <div class="property-row">
+
+                            <div class="property-info">
+
+                                <div class="property-image">
+                                    <img
+                                        src="images/property3.jpg"
+                                        alt="Luxury House">
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Luxury House
+                                    </h3>
+
+                                    <p>
+                                        Skikda, Algeria
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="property-price">
+
+                                <strong>
+                                    15,000,000 DZD
+                                </strong>
+
+                            </div>
+                            <div class="property-status sold-status">
+
+                                Sold
+
+                            </div>
+
+
+                            <div class="property-actions">
+
+                                <a href="#">
+                                    View
+                                </a>
+
+                                <a href="#">
+                                    Edit
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= RECENT REQUESTS ================= -->
+
+                <div class="dashboard-section">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <h2>
+                                Recent Requests
+                            </h2>
+
+                            <p>
+                                Latest requests from potential buyers.
+                            </p>
+
+                        </div>
+
+                        <a href="#" class="view-all">
+                            View All →
+                        </a>
+
+                    </div>
+
+
+                    <div class="requests-list">
+
+
+                        <!-- REQUEST 1 -->
+
+                        <div class="request-card">
+
+                            <div class="buyer-avatar">
+                                A
+                            </div>
+
+                            <div class="request-info">
+
+                                <h3>
+                                    Ahmed Benali
+                                </h3>
+
+                                <p>
+                                    Interested in Modern Villa
+                                </p>
+
+                                <small>
+                                    Today • 10:30 AM
+                                </small>
+
+                            </div>
+
+
+                            <div class="request-status new-request">
+                                New
+                            </div>
+
+
+                            <a href="#" class="request-action">
+                                View Request
+                            </a>
+
+                        </div>
+
+
+
+                        <!-- REQUEST 2 -->
+
+                        <div class="request-card">
+
+                            <div class="buyer-avatar">
+                                M
+                            </div>
+
+                            <div class="request-info">
+
+                                <h3>
+                                    Mohamed Ali
+                                </h3>
+
+                                <p>
+                                    Wants to visit Family Apartment
+                                </p>
+
+                                <small>
+                                    Yesterday • 16:20
+                                </small>
+
+                            </div>
+
+
+                            <div class="request-status confirmed-request">
+                                Confirmed
+                            </div>
+
+
+                            <a href="#" class="request-action">
+                                View Request
+                            </a>
+
+                        </div>
+
+
+
+                        <!-- REQUEST 3 -->
+
+                        <div class="request-card">
+
+                            <div class="buyer-avatar">
+                                Y
+                            </div>
+
+                            <div class="request-info">
+
+                                <h3>
+                                    Yassine K.
+                                </h3>
+
+                                <p>
+                                    Interested in Luxury House
+                                </p>
+
+                                <small>
+                                    2 days ago
+                                </small>
+
+                            </div>
+                            <div class="request-status pending-request">
+                                Pending
+                            </div>
+
+
+                            <a href="#" class="request-action">
+                                View Request
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    BD <span>AQAR</span>
+                </a>
+
+                <p>
+                    Find your property.
+                    Make your move.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="properties.html">
+                    Properties
+                </a>
+
+                <a href="add-property.html">
+                    Add Property
+                </a>
+
+                    <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BD AQAR. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

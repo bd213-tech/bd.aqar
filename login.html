@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <title>Login | BD AQAR</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="login-page">
+
+
+    <!-- ================= LOGO ================= -->
+
+    <header class="login-header">
+
+        <a href="index.html" class="login-logo">
+            BD <span>AQAR</span>
+        </a>
+
+    </header>
+
+
+
+    <!-- ================= LOGIN ================= -->
+
+    <main class="login-container">
+
+        <div class="login-card">
+
+
+            <div class="login-title">
+
+                <p class="section-label">
+                    WELCOME BACK
+                </p>
+
+                <h1>
+                    Login to BD AQAR
+                </h1>
+
+                <p>
+                    Access your account and continue your property journey.
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= FORM ================= -->
+
+            <form class="login-form">
+
+
+                <!-- Email / Phone -->
+
+                <div class="login-form-group">
+
+                    <label for="login-input">
+                        Email or Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="login-input"
+                        name="login-input"
+                        placeholder="Enter your email or phone number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="login-form-group">
+
+                    <div class="password-label">
+
+                        <label for="login-password">
+                            Password
+                        </label>
+
+                        <a href="#">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+                    <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Remember -->
+
+                <div class="remember-me">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            name="remember"
+                        >
+
+                        Remember me
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- Login Button -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Login →
+                </button>
+
+
+            </form>
+
+
+
+            <!-- ================= DIVIDER ================= -->
+
+            <div class="login-divider">
+
+                <span>OR</span>
+
+            </div>
+
+
+
+            <!-- ================= GOOGLE ================= -->
+
+            <button
+                type="button"
+                class="google-login-btn"
+            >
+
+                <span class="google-mark" aria-hidden="true">G</span>
+                Continue with Google
+
+            </button>
+
+
+
+            <!-- ================= REGISTER ================= -->
+
+            <p class="register-link">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="login-footer">
+
+        <p>
+            © 2026 BD AQAR. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

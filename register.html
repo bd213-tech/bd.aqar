@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <title>Create Account | BD AQAR</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="register-page">
+
+
+    <!-- ================= LOGO ================= -->
+
+    <header class="register-header">
+
+        <a href="index.html" class="register-logo">
+            BD <span>AQAR</span>
+        </a>
+
+    </header>
+
+
+
+    <!-- ================= REGISTER ================= -->
+
+    <main class="register-container">
+
+        <div class="register-card">
+
+
+            <div class="register-title">
+
+                <p class="section-label">
+                    BD AQAR
+                </p>
+
+                <h1>
+                    Create Your Account
+                </h1>
+
+                <p>
+                    Join BD AQAR and find your perfect property.
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= FORM ================= -->
+
+            <form class="register-form">
+                <!-- ================= ACCOUNT TYPE ================= -->
+
+<div class="account-type">
+
+    <label class="account-type-title">
+        I want to
+    </label>
+
+    <div class="account-type-options">
+
+        <label class="account-option">
+
+            <input
+                type="radio"
+                name="account-type"
+                value="buyer"
+                required
+            >
+
+            <div class="account-option-box">
+
+                <span class="account-option-icon">
+                    🏠
+                </span>
+
+                <strong>
+                    Buy a Property
+                </strong>
+
+                <small>
+                    I'm looking for a property
+                </small>
+
+            </div>
+
+        </label>
+
+
+        <label class="account-option">
+
+            <input
+                type="radio"
+                name="account-type"
+                value="seller"
+                required
+            >
+
+            <div class="account-option-box">
+
+                <span class="account-option-icon">
+                    🏢
+                </span>
+
+                <strong>
+                    Sell / Rent a Property
+                </strong>
+
+                <small>
+                    I want to list a property
+                </small>
+
+            </div>
+
+        </label>
+
+    </div>
+
+</div>
+
+
+                <!-- First Name -->
+
+                <div class="form-group">
+
+                    <label for="first-name">
+                        First Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="first-name"
+                        name="first-name"
+                        placeholder="Enter your first name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Last Name -->
+
+                <div class="form-group">
+
+                    <label for="last-name">
+                        Last Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="last-name"
+                        name="last-name"
+                        placeholder="Enter your last name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Date of Birth -->
+
+                <div class="form-group">
+
+                    <label for="birth-date">
+                        Date of Birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="birth-date"
+                        name="birth-date"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Wilaya -->
+
+                <div class="form-group">
+
+                    <label for="wilaya">
+                        Wilaya
+                    </label>
+
+                    <select
+                        id="wilaya"
+                        name="wilaya"
+                        required
+                    >
+
+                        <option value="">
+                            Select your wilaya
+                        </option>
+
+                        <option value="adrar">
+                            Adrar
+                        </option>
+
+                        <option value="algiers">
+                            Algiers
+                        </option>
+
+                        <option value="annaba">
+                            Annaba
+                        </option>
+
+                        <option value="batna">
+                            Batna
+                        </option>
+
+                        <option value="bejaia">
+                            Béjaïa
+                        </option>
+
+                        <option value="blida">
+                            Blida
+                        </option>
+
+                        <option value="constantine">
+                            Constantine
+                        </option>
+
+                        <option value="oran">
+                            Oran
+                        </option>
+
+                        <option value="setif">
+                            Sétif
+                        </option>
+
+                        <option value="tlemcen">
+                            Tlemcen
+                        </option>
+                        </select>
+
+                </div>
+
+
+
+                <!-- Phone -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="0550123456"
+                        inputmode="numeric"
+                        pattern="[0-9]{10}"
+                        minlength="10"
+                        maxlength="10"
+                        title="Enter exactly 10 digits"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Confirm Password -->
+
+                <div class="form-group">
+
+                    <label for="confirm-password">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm-password"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- Terms -->
+
+                <div class="terms">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            required
+                        >
+
+                        <span>
+                            I agree to the
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+                            and
+                            <a href="#">
+                                Privacy Policy
+                            </a>.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- Continue -->
+
+                <button
+                    type="submit"
+                    class="register-btn"
+                >
+                    Continue →
+                </button>
+
+
+            </form>
+
+
+
+            <!-- ================= GOOGLE ================= -->
+
+            <div class="register-divider">
+
+                <span>OR</span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="google-btn"
+            >
+
+                🔵
+                Continue with Google
+
+            </button>
+
+
+
+            <!-- ================= LOGIN ================= -->
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="register-footer">
+
+        <p>
+            © 2026 BD AQAR. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

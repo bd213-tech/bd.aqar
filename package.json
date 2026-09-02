@@ -1,0 +1,14 @@
+{
+  "name": "bd-aqar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BD AQAR property platform backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

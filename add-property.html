@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Sell Property | BD AQAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="add-property-page">
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-main">BD AQAR</span>
+            <span class="logo-sub">BY AKRAM BELAIDI</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="add-property.html" class="active">Sell Property</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="post-btn">Create Account</a>
+        </div>
+    </header>
+
+    <main class="add-property-container">
+        <div class="page-intro">
+            <p class="section-label">LIST YOUR PROPERTY</p>
+            <h1>Give your property a <span>proper showcase.</span></h1>
+            <p>Share the essential details and our team will review your listing before it goes live.</p>
+        </div>
+
+        <form class="property-form" id="property-form">
+            <section class="form-panel">
+                <div class="form-panel-heading"><span>01</span><div><h2>Property details</h2><p>Tell buyers what makes this place special.</p></div></div>
+                <div class="form-grid">
+                    <label>Property title<input name="title" type="text" placeholder="e.g. Modern Family Villa" required></label>
+                    <label>Property type<select name="type" required><option value="">Choose a type</option><option>Apartment</option><option>Villa</option><option>House</option><option>Land</option><option>Shop</option><option>Office</option></select></label>
+                    <label>Listing type<select name="listing" required><option value="">For sale or rent?</option><option>For Sale</option><option>For Rent</option></select></label>
+                    <label>Price (DZD)<input name="price" type="number" min="0" placeholder="20,000,000" required></label>
+                    <label>Wilaya<select id="property-wilaya" name="wilaya" required><option value="">Choose your wilaya</option></select></label>
+                    <label>City / area<input name="area" type="text" placeholder="El Bouni" required></label>
+                    <label>Bedrooms<input name="bedrooms" type="number" min="0" placeholder="4"></label>
+                    <label>Bathrooms<input name="bathrooms" type="number" min="0" placeholder="3"></label>
+                    <label>Surface (m²)<input name="surface" type="number" min="1" placeholder="280" required></label>
+                    <label>Year built<input name="year" type="number" min="1800" max="2100" placeholder="2022"></label>
+                </div>
+                <label class="full-field">Description<textarea name="description" rows="5" placeholder="Describe the property, its condition and nearby amenities..." required></textarea></label>
+            </section>
+
+            <section class="form-panel">
+                <div class="form-panel-heading"><span>02</span><div><h2>Property photo</h2><p>A clear photo helps your listing stand out.</p></div></div>
+                <label class="upload-box" for="property-photo"><strong>Choose a cover photo</strong><span>JPG or PNG, up to 5 MB</span><input id="property-photo" name="photo" type="file" accept="image/png,image/jpeg"></label>
+                <img class="photo-preview" id="photo-preview" alt="Selected property preview">
+            </section>
+
+            <label class="commission-check"><input type="checkbox" name="accept-commission" value="true" required><span>I accept the BD AQAR commission of <strong>1%</strong> of the listing price.</span></label>
+
+            <div class="form-actions"><a href="dashboard.html" class="secondary-btn">Cancel</a><button class="primary-btn" type="submit">Submit for Review <span>→</span></button></div>
+            <p class="form-message" id="form-message" role="status"></p>
+        </form>
+    </main>
+
+    <footer class="footer"><div class="footer-bottom"><span>© 2026 BD AQAR</span><span>Find • Visit • Own</span></div></footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

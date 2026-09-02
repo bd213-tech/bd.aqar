@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <title>My Properties | BD AQAR</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="seller-dashboard-page">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="navbar-container">
+
+            <a href="index.html" class="logo">
+                BD <span>AQAR</span>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="properties.html">
+                    Properties
+                </a>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="add-property.html">
+                    Add Property
+                </a>
+
+            </nav>
+
+            <div class="nav-user">
+
+                <div class="user-avatar">
+                    S
+                </div>
+
+                <span>Seller</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="dashboard-container">
+
+        <!-- ================= PAGE HEADER ================= -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="section-label">
+                    MY PROPERTIES
+                </p>
+
+                <h1>
+                    My Properties
+                </h1>
+
+                <p>
+                    Manage all your properties and listings.
+                </p>
+
+            </div>
+
+            <a href="add-property.html" class="dashboard-add-btn">
+                + Add Property
+            </a>
+
+        </section>
+
+
+        <!-- ================= FILTERS ================= -->
+
+        <section class="dashboard-section">
+
+            <div class="property-filters">
+
+                <button class="property-filter active">
+                    All
+                </button>
+
+                <button class="property-filter">
+                    Active
+                </button>
+
+                <button class="property-filter">
+                    Pending
+                </button>
+
+                <button class="property-filter">
+                    Sold
+                </button>
+
+                <button class="property-filter">
+                    Rented
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROPERTIES ================= -->
+
+        <section class="seller-properties-grid">
+
+
+            <!-- PROPERTY 1 -->
+
+            <article class="seller-property-card">
+
+                <div class="seller-property-image">
+
+                    <img
+                        src="images/property1.jpg"
+                        alt="Modern Villa">
+
+                    <span class="property-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="seller-property-content">
+
+                    <h2>
+                        Modern Villa
+                    </h2>
+
+                    <p class="seller-property-location">
+                        📍 Annaba, Algeria
+                    </p>
+
+                    <h3>
+                        20,000,000 DZD
+                    </h3>
+
+
+                    <div class="seller-property-features">
+
+                        <span>
+                            🛏 4 Beds
+                        </span>
+
+                        <span>
+                            🚿 2 Baths
+                        </span>
+
+                        <span>
+                            📐 250 m²
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-stats">
+
+                        <span>
+                            👁 425 Views
+                        </span>
+
+                        <span>
+                            ❤️ 32 Favorites
+                        </span>
+                        </div>
+
+
+                    <div class="seller-property-actions">
+
+                        <a href="property-details.html">
+                            View
+                        </a>
+
+                        <a href="#">
+                            Edit
+                        </a>
+
+                        <a href="#" class="delete-property">
+                            Delete
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROPERTY 2 -->
+
+            <article class="seller-property-card">
+
+                <div class="seller-property-image">
+
+                    <img
+                        src="images/property2.jpg"
+                        alt="Family Apartment">
+
+                    <span class="property-status pending-status">
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <div class="seller-property-content">
+
+                    <h2>
+                        Family Apartment
+                    </h2>
+
+                    <p class="seller-property-location">
+                        📍 Constantine, Algeria
+                    </p>
+
+                    <h3>
+                        8,500,000 DZD
+                    </h3>
+
+
+                    <div class="seller-property-features">
+
+                        <span>
+                            🛏 3 Beds
+                        </span>
+
+                        <span>
+                            🚿 2 Baths
+                        </span>
+
+                        <span>
+                            📐 140 m²
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-stats">
+
+                        <span>
+                            👁 180 Views
+                        </span>
+
+                        <span>
+                            ❤️ 14 Favorites
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-actions">
+
+                        <a href="#">
+                            View
+                        </a>
+
+                        <a href="#">
+                            Edit
+                        </a>
+
+                        <a href="#" class="delete-property">
+                            Delete
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROPERTY 3 -->
+
+            <article class="seller-property-card">
+
+                <div class="seller-property-image">
+
+                    <img
+                        src="images/property3.jpg"
+                        alt="Luxury House">
+
+                    <span class="property-status sold-status">
+                        Sold
+                    </span>
+
+                </div>
+
+
+                <div class="seller-property-content">
+
+                    <h2>
+                        Luxury House
+                    </h2>
+
+                    <p class="seller-property-location">
+                        📍 Skikda, Algeria
+                    </p>
+
+                    <h3>
+                        15,000,000 DZD
+                    </h3>
+
+
+                    <div class="seller-property-features">
+
+                        <span>
+                            🛏 5 Beds
+                        </span>
+
+                        <span>
+                            🚿 3 Baths
+                        </span>
+
+                        <span>
+                            📐 300 m²
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-stats">
+
+                        <span>
+                            👁 643 Views
+                        </span>
+
+                        <span>
+                            ❤️ 40 Favorites
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-actions">
+
+                        <a href="#">
+                            View
+                        </a>
+                        <a href="#">
+                            Edit
+                        </a>
+
+                        <a href="#" class="delete-property">
+                            Delete
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROPERTY 4 -->
+
+            <article class="seller-property-card">
+
+                <div class="seller-property-image">
+
+                    <img
+                        src="images/property1.jpg"
+                        alt="Beach Apartment">
+
+                    <span class="property-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="seller-property-content">
+
+                    <h2>
+                        Beach Apartment
+                    </h2>
+
+                    <p class="seller-property-location">
+                        📍 Jijel, Algeria
+                    </p>
+
+                    <h3>
+                        11,500,000 DZD
+                    </h3>
+
+
+                    <div class="seller-property-features">
+
+                        <span>
+                            🛏 3 Beds
+                        </span>
+
+                        <span>
+                            🚿 2 Baths
+                        </span>
+
+                        <span>
+                            📐 160 m²
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-stats">
+
+                        <span>
+                            👁 290 Views
+                        </span>
+
+                        <span>
+                            ❤️ 21 Favorites
+                        </span>
+
+                    </div>
+
+
+                    <div class="seller-property-actions">
+
+                        <a href="#">
+                            View
+                        </a>
+
+                        <a href="#">
+                            Edit
+                        </a>
+
+                        <a href="#" class="delete-property">
+                            Delete
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    BD <span>AQAR</span>
+                </a>
+
+                <p>
+                    Find your property.
+                    Make your move.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="properties.html">
+                    Properties
+                </a>
+
+                <a href="add-property.html">
+                    Add Property
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BD AQAR. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

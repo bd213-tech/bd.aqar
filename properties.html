@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+    <title>Properties | BD AQAR</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            BD <span>AQAR</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="properties.html" class="active">Properties</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="add-property.html" class="add-property-btn">+ Add Property</a>
+        </div>
+
+    </header>
+
+
+    <!-- ================= PROPERTIES HERO ================= -->
+
+    <main>
+
+        <section class="properties-hero">
+
+            <div class="hero-content">
+
+                <p class="section-label">
+                    FIND YOUR NEXT HOME
+                </p>
+
+                <h1>
+                    Find the Perfect <span>Property</span>
+                </h1>
+
+                <p>
+                    Search thousands of properties across Algeria
+                    and find the one that matches your needs.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="property-search">
+
+            <div class="search-box">
+
+                <div class="search-field">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Wilaya, city or area"
+                    >
+
+                </div>
+
+
+                <div class="search-field">
+
+                    <label for="property-type">
+                        Property Type
+                    </label>
+
+                    <select id="property-type">
+
+                        <option value="">
+                            All Types
+                        </option>
+
+                        <option value="apartment">
+                            Apartment
+                        </option>
+
+                        <option value="villa">
+                            Villa
+                        </option>
+
+                        <option value="house">
+                            House
+                        </option>
+
+                        <option value="land">
+                            Land
+                        </option>
+
+                        <option value="office">
+                            Office
+                        </option>
+
+                        <option value="shop">
+                            Shop
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="search-field">
+
+                    <label for="transaction">
+                        For
+                    </label>
+
+                    <select id="transaction">
+
+                        <option value="">
+                            Buy or Rent
+                        </option>
+
+                        <option value="sale">
+                            Sale
+                        </option>
+
+                        <option value="rent">
+                            Rent
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button class="search-btn" type="button">
+                    🔎 Search
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FILTERS ================= -->
+
+        <section class="filters-section">
+
+            <div class="filters-header">
+
+                <h2>
+                    Filter Properties
+                </h2>
+
+                <button type="button" class="clear-filters">
+                    Clear All
+                </button>
+
+            </div>
+            <div class="filters">
+
+                <!-- Price -->
+
+                <div class="filter-group">
+
+                    <label>
+                        Price
+                    </label>
+
+                    <div class="price-inputs">
+
+                        <input
+                            type="number"
+                            placeholder="Min price"
+                        >
+
+                        <input
+                            type="number"
+                            placeholder="Max price"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Bedrooms -->
+
+                <div class="filter-group">
+
+                    <label for="bedrooms">
+                        Bedrooms
+                    </label>
+
+                    <select id="bedrooms">
+
+                        <option value="">
+                            Any
+                        </option>
+
+                        <option value="1">
+                            1+
+                        </option>
+
+                        <option value="2">
+                            2+
+                        </option>
+
+                        <option value="3">
+                            3+
+                        </option>
+
+                        <option value="4">
+                            4+
+                        </option>
+
+                        <option value="5">
+                            5+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Bathrooms -->
+
+                <div class="filter-group">
+
+                    <label for="bathrooms">
+                        Bathrooms
+                    </label>
+
+                    <select id="bathrooms">
+
+                        <option value="">
+                            Any
+                        </option>
+
+                        <option value="1">
+                            1+
+                        </option>
+
+                        <option value="2">
+                            2+
+                        </option>
+
+                        <option value="3">
+                            3+
+                        </option>
+
+                        <option value="4">
+                            4+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Surface -->
+
+                <div class="filter-group">
+
+                    <label>
+                        Surface
+                    </label>
+
+                    <div class="price-inputs">
+
+                        <input
+                            type="number"
+                            placeholder="Min m²"
+                        >
+
+                        <input
+                            type="number"
+                            placeholder="Max m²"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Wilaya -->
+
+                <div class="filter-group">
+
+                    <label for="wilaya">
+                        Wilaya
+                    </label>
+
+                    <select id="wilaya">
+
+                        <option value="">
+                            All Wilayas
+                        </option>
+
+                        <option value="algiers">
+                            Algiers
+                        </option>
+
+                        <option value="annaba">
+                            Annaba
+                        </option>
+
+                        <option value="constantine">
+                            Constantine
+                        </option>
+
+                        <option value="oran">
+                            Oran
+                        </option>
+
+                        <option value="setif">
+                            Sétif
+                        </option>
+
+                        <option value="bejaia">
+                            Béjaïa
+                        </option>
+
+                        <option value="batna">
+                            Batna
+                            </option>
+
+                        <option value="tlemcen">
+                            Tlemcen
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESULTS HEADER ================= -->
+
+        <section class="properties-results">
+
+            <div class="results-header">
+
+                <div>
+                    <p class="section-label">
+                        PROPERTY LISTINGS
+                    </p>
+
+                    <h2>
+                        Available Properties
+                    </h2>
+
+                    <p>
+                        120 properties found
+                    </p>
+                </div>
+
+
+                <div class="sort-box">
+
+                    <label for="sort">
+                        Sort by
+                    </label>
+
+                    <select id="sort">
+
+                        <option value="newest">
+                            Newest
+                        </option>
+
+                        <option value="low-price">
+                            Price: Low to High
+                        </option>
+
+                        <option value="high-price">
+                            Price: High to Low
+                        </option>
+
+                        <option value="large">
+                            Largest Surface
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROPERTY CARDS ================= -->
+
+            <div class="properties-grid">
+
+
+                <!-- Property 1 -->
+
+                <article class="property-card">
+
+                    <div class="property-image">
+
+                        <img
+                            src="images/property1.jpg"
+                            alt="Modern villa in Annaba"
+                        >
+
+                        <span class="property-status">
+                            For Sale
+                        </span>
+
+                        <button
+                            type="button"
+                            class="favorite-btn"
+                            aria-label="Add to favorites"
+                        >
+                            ♡
+                        </button>
+
+                    </div>
+
+
+                    <div class="property-info">
+
+                        <p class="property-type">
+                            Villa
+                        </p>
+
+                        <h3>
+                            Modern Villa
+                        </h3>
+
+                        <p class="property-location">
+                            📍 Annaba, Algeria
+                        </p>
+
+                        <div class="property-details">
+
+                            <span>
+                                🛏 4 Beds
+                            </span>
+
+                            <span>
+                                🛁 3 Baths
+                            </span>
+
+                            <span>
+                                📐 280 m²
+                            </span>
+
+                        </div>
+
+                        <div class="property-bottom">
+
+                            <strong>
+                                20,000,000 DZD
+                            </strong>
+
+                            <a href="property-details.html">
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Property 2 -->
+
+                <article class="property-card">
+
+                    <div class="property-image">
+
+                        <img
+                            src="images/property2.jpg"
+                            alt="Modern apartment in Algiers"
+                        >
+
+                        <span class="property-status">
+                            For Sale
+                        </span>
+
+                        <button
+                        type="button"
+                            class="favorite-btn"
+                            aria-label="Add to favorites"
+                        >
+                            ♡
+                        </button>
+
+                    </div>
+
+
+                    <div class="property-info">
+
+                        <p class="property-type">
+                            Apartment
+                        </p>
+
+                        <h3>
+                            Modern Apartment
+                        </h3>
+
+                        <p class="property-location">
+                            📍 Algiers, Algeria
+                        </p>
+
+                        <div class="property-details">
+
+                            <span>
+                                🛏 3 Beds
+                            </span>
+
+                            <span>
+                                🛁 2 Baths
+                            </span>
+
+                            <span>
+                                📐 145 m²
+                            </span>
+
+                        </div>
+
+                        <div class="property-bottom">
+
+                            <strong>
+                                18,500,000 DZD
+                            </strong>
+
+                            <a href="property-details.html">
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Property 3 -->
+
+                <article class="property-card">
+
+                    <div class="property-image">
+
+                        <img
+                            src="images/property3.jpg"
+                            alt="House in Constantine"
+                        >
+
+                        <span class="property-status">
+                            For Rent
+                        </span>
+
+                        <button
+                            type="button"
+                            class="favorite-btn"
+                            aria-label="Add to favorites"
+                        >
+                            ♡
+                        </button>
+
+                    </div>
+
+
+                    <div class="property-info">
+
+                        <p class="property-type">
+                            House
+                        </p>
+
+                        <h3>
+                            Family House
+                        </h3>
+
+                        <p class="property-location">
+                            📍 Constantine, Algeria
+                        </p>
+
+                        <div class="property-details">
+
+                            <span>
+                                🛏 3 Beds
+                            </span>
+
+                            <span>
+                                🛁 2 Baths
+                            </span>
+
+                            <span>
+                                📐 190 m²
+                            </span>
+
+                        </div>
+
+                        <div class="property-bottom">
+
+                            <strong>
+                                75,000 DZD / Month
+                            </strong>
+
+                            <a href="property-details.html">
+                                View Details →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PAGINATION ================= -->
+
+        <section class="pagination-section">
+
+            <button type="button">
+                ←
+            </button>
+
+            <button type="button" class="active">
+                1
+            </button>
+
+            <button type="button">
+                2
+            </button>
+
+            <button type="button">
+                3
+            </button>
+
+            <span>
+                ...
+            </span>
+
+            <button type="button">
+                10
+            </button>
+
+            <button type="button">
+                →
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    BD <span>AQAR</span>
+                </div>
+
+                <p>
+                    Find your perfect property
+                    with BD AQAR.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="properties.html">
+                    Properties
+                </a>
+
+                <a href="#">
+                    About Us
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Services
+                </h3>
+
+                <a href="#">
+                    Buy Property
+                </a>
+
+                <a href="#">
+                    Rent Property
+                </a>
+
+                <a href="#">
+                    Add Property
+                </a>
+
+                <a href="#">
+                    BD AI
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BD AQAR. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+<script src="js/script.js"></script>
+</html>

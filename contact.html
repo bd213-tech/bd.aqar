@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Contact BD AQAR</title>
+    <meta name="description" content="Contact BD AQAR for property questions and listings.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="info-page">
+    <header class="navbar">
+        <a href="index.html" class="logo"><span class="logo-main">BD AQAR</span><span class="logo-sub">BY AKRAM BELAIDI</span></a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="add-property.html">Sell Property</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <div class="nav-actions"><a href="login.html" class="login-btn">Login</a><a href="add-property.html" class="post-btn">+ Post Property</a></div>
+    </header>
+
+    <main class="info-main contact-main">
+        <section class="info-hero">
+            <p class="section-label">GET IN TOUCH</p>
+            <h1>Let’s talk about your <span>next move.</span></h1>
+            <p>Have a question about a property, a visit or your listing? Reach out directly.</p>
+        </section>
+        <section class="contact-layout">
+            <div class="contact-details">
+                <div class="contact-item"><span>EMAIL</span><a href="mailto:akram.belaidi@univ-annaba.dz">akram.belaidi@univ-annaba.dz</a></div>
+                <div class="contact-item"><span>PHONE</span><a href="tel:0540771584">0540771584</a></div>
+                <div class="contact-item"><span>WHATSAPP</span><a href="https://wa.me/213540771584" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+                <div class="contact-item"><span>LOCATION</span><a href="https://www.google.com/maps/search/?api=1&query=Annaba%2C%20Algeria" target="_blank" rel="noopener">Annaba, Algeria ↗</a></div>
+            </div>
+            <form class="contact-form" id="contact-form">
+                <label>Your name<input type="text" name="name" placeholder="Your full name" required></label>
+                <label>Your email<input type="email" name="email" placeholder="you@example.com" required></label>
+                <label>How can we help?<textarea name="message" rows="6" placeholder="Tell us what you need..." required></textarea></label>
+                <button type="submit" class="primary-btn">Send Message →</button>
+                <p class="form-message" id="contact-message" role="status"></p>
+            </form>
+        </section>
+    </main>
+    <footer class="footer"><div class="footer-bottom"><span>© 2026 BD AQAR</span><a href="about.html">About BD AQAR</a></div></footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
