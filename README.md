@@ -14,4 +14,4 @@ The local database is stored in `data/db.json` and is intentionally ignored by G
 
 ## Google sign-in
 
-The Google buttons are placeholders until OAuth credentials are configured. A real Google login requires a Google Cloud OAuth client, a backend callback URL, and environment variables for the client ID and secret. Do not put the secret in HTML or commit it to Git.
+Google sign-in is wired through the backend. To enable it, create a Web OAuth client in Google Cloud, add `http://localhost:3000/auth/google/callback` as an authorized redirect URI, then set `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `GOOGLE_REDIRECT_URI` from `.env.example` in the server environment. Do not put the secret in HTML or commit it to Git.

@@ -11,6 +11,9 @@ const sessions = new Map();
 const pendingVerifications = new Map();
 const passwordResets = new Map();
 const rateLimits = new Map();
+const googleStates = new Map();
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml' };
 
 async function readDb() {
@@ -24,6 +27,11 @@ async function writeDb(db) {
 function sendJson(response, status, payload) {
     response.writeHead(status, securityHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }));
     response.end(JSON.stringify(payload));
+}
+
+function sendText(response, status, text) {
+    response.writeHead(status, securityHeaders({ 'Content-Type': 'text/html; charset=utf-8' }));
+    response.end(text);
 }
 
 function securityHeaders(headers = {}) {
@@ -67,6 +75,41 @@ function authenticatedUser(request, db) {
     const session = token && sessions.get(token);
     if (!session || session.expires < Date.now()) return null;
     return db.users.find((user) => user.id === session.userId) || null;
+}
+
+function googleRedirectUri(request) {
+    return process.env.GOOGLE_REDIRECT_URI || `http://${request.headers.host || 'localhost:3000'}/auth/google/callback`;
+}
+
+async function googleAuth(request, response, url) {
+    if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) return sendText(response, 503, '<h1>Google sign-in is not configured</h1><p>Add GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to the server environment.</p>');
+    if (url.pathname === '/auth/google') {
+        const state = crypto.randomBytes(24).toString('hex');
+        googleStates.set(state, { expires: Date.now() + 10 * 60 * 1000 });
+        const params = new URLSearchParams({ client_id: GOOGLE_CLIENT_ID, redirect_uri: googleRedirectUri(request), response_type: 'code', scope: 'openid email profile', state, access_type: 'online', prompt: 'select_account' });
+        response.writeHead(302, { Location: `https://accounts.google.com/o/oauth2/v2/auth?${params}` });
+        return response.end();
+    }
+    if (url.pathname !== '/auth/google/callback') return sendJson(response, 404, { error: 'Google route not found.' });
+    const state = googleStates.get(url.searchParams.get('state'));
+    if (!state || state.expires < Date.now()) return sendText(response, 400, '<h1>Google sign-in expired</h1><p>Please return to BD AQAR and try again.</p>');
+    googleStates.delete(url.searchParams.get('state'));
+    const tokenResponse = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ code: url.searchParams.get('code') || '', client_id: GOOGLE_CLIENT_ID, client_secret: GOOGLE_CLIENT_SECRET, redirect_uri: googleRedirectUri(request), grant_type: 'authorization_code' }) });
+    if (!tokenResponse.ok) return sendText(response, 401, '<h1>Google sign-in failed</h1><p>Google did not accept the authorization.</p>');
+    const tokens = await tokenResponse.json();
+    const profileResponse = await fetch('https://openidconnect.googleapis.com/v1/userinfo', { headers: { Authorization: `Bearer ${tokens.access_token}` } });
+    if (!profileResponse.ok) return sendText(response, 401, '<h1>Google profile unavailable</h1><p>Please try again.</p>');
+    const profile = await profileResponse.json();
+    const db = await readDb();
+    let user = db.users.find((candidate) => candidate.email === String(profile.email || '').toLowerCase());
+    if (!user) {
+        user = { id: crypto.randomUUID(), firstName: clean(profile.given_name, 80), lastName: clean(profile.family_name, 80), email: String(profile.email || '').toLowerCase(), phone: '', wilaya: '', accountType: 'buyer', role: 'buyer', provider: 'google', providerId: clean(profile.sub, 160), phoneVerified: false, emailVerified: true, passwordHash: await hashPassword(crypto.randomBytes(32).toString('hex')), createdAt: new Date().toISOString() };
+        db.users.push(user);
+        await writeDb(db);
+    }
+    const token = tokenFor(user.id);
+    response.writeHead(302, { Location: `/index.html#auth_token=${encodeURIComponent(token)}` });
+    response.end();
 }
 
 async function bodyJson(request) {
@@ -216,7 +259,8 @@ async function serveStatic(request, response, url) {
 const server = http.createServer(async (request, response) => {
     try {
         const url = new URL(request.url, `http://${request.headers.host || 'localhost'}`);
-        if (url.pathname.startsWith('/api/')) await api(request, response, url);
+        if (url.pathname.startsWith('/auth/google')) await googleAuth(request, response, url);
+        else if (url.pathname.startsWith('/api/')) await api(request, response, url);
         else await serveStatic(request, response, url);
     } catch (error) {
         sendJson(response, error.message === 'Request body too large' ? 413 : 400, { error: 'Invalid request.' });

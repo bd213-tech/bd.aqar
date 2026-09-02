@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const isAuthPage = document.body.classList.contains('login-page') || document.body.classList.contains('register-page');
+    const urlToken = new URLSearchParams(window.location.hash.slice(1)).get('auth_token');
+    if (urlToken) {
+        sessionStorage.setItem('bd_aqar_token', urlToken);
+        window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+    }
     const authToken = sessionStorage.getItem('bd_aqar_token');
     if (!isAuthPage && !authToken) {
         window.location.replace('login.html');
@@ -259,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.google-login-btn, .google-btn').forEach((button) => {
         button.addEventListener('click', () => {
-            window.alert('Google sign-in is not configured yet. Use email registration, or configure Google OAuth credentials on the backend.');
+            window.location.href = '/auth/google';
         });
     });
 
