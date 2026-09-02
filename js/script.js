@@ -99,7 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const apiRequest = async (endpoint, options = {}) => {
-        const response = await fetch(endpoint, { headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }, ...options });
+        let response;
+        try {
+            response = await fetch(endpoint, { headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }, ...options });
+        } catch {
+            throw new Error('Backend unavailable. Open the site through http://localhost:3000 and make sure the server is running.');
+        }
+        const contentType = response.headers.get('content-type') || '';
+        if (!contentType.includes('application/json')) throw new Error('This page is not connected to the BD AQAR backend. Use http://localhost:3000.');
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || 'Something went wrong.');
         return data;
