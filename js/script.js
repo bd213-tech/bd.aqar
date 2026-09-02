@@ -247,6 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.querySelectorAll('.google-login-btn, .google-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            window.alert('Google sign-in is not configured yet. Use email registration, or configure Google OAuth credentials on the backend.');
+        });
+    });
+
     const dashboard = document.querySelector('.dashboard-container');
     if (dashboard) {
         const token = sessionStorage.getItem('bd_aqar_token');
