@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const isAuthPage = document.body.classList.contains('login-page') || document.body.classList.contains('register-page');
+    const authToken = sessionStorage.getItem('bd_aqar_token');
+    if (!isAuthPage && !authToken) {
+        window.location.replace('login.html');
+        return;
+    }
+
     const translations = {
         en: {
             Home: 'Home', Properties: 'Properties', 'Sell Property': 'Sell Property', Dashboard: 'Dashboard', About: 'About', Contact: 'Contact', Login: 'Login', 'Post Property': 'Post Property', 'Create Account': 'Create Account', 'Contact us': 'Contact us', 'View Details →': 'View Details →', 'Explore Properties': 'Explore Properties', 'Sell Your Property': 'Sell Your Property', 'Chat with BD AI →': 'Chat with BD AI →', 'Contact Seller': 'Contact Seller', WhatsApp: 'WhatsApp', 'Send Message →': 'Send Message →', 'Submit for Review': 'Submit for Review'
