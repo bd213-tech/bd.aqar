@@ -162,13 +162,27 @@ async function api(request, response, url) {
 
     if (request.method === 'GET' && url.pathname === '/api/properties') return sendJson(response, 200, { properties: db.properties });
 
+    if (request.method === 'GET' && url.pathname === '/api/me') {
+        const user = authenticatedUser(request, db);
+        if (!user) return sendJson(response, 401, { error: 'Authentication required.' });
+        return sendJson(response, 200, { user: { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, accountType: user.accountType } });
+    }
+
+    if (request.method === 'GET' && url.pathname === '/api/my-properties') {
+        const user = authenticatedUser(request, db);
+        if (!user) return sendJson(response, 401, { error: 'Authentication required.' });
+        return sendJson(response, 200, { properties: db.properties.filter((property) => property.ownerId === user.id) });
+    }
+
     if (request.method === 'POST' && url.pathname === '/api/properties') {
         const user = authenticatedUser(request, db);
         if (!user) return sendJson(response, 401, { error: 'Please log in before adding a property.' });
         const input = await bodyJson(request);
         if (input['accept-commission'] !== 'true') return sendJson(response, 400, { error: 'You must accept the 1% BD AQAR commission.' });
+        if (input['communication-authorization'] !== 'true') return sendJson(response, 400, { error: 'You must authorize BD AQAR communication for this listing.' });
         const price = Number(input.price) || 0;
-        const property = { id: crypto.randomUUID(), ownerId: user.id, title: clean(input.title, 120), type: clean(input.type, 40), listing: clean(input.listing, 40), price, commissionRate: 0.01, commissionAmount: Math.round(price * 0.01 * 100) / 100, wilaya: clean(input.wilaya, 80), area: clean(input.area, 80), bedrooms: Number(input.bedrooms) || 0, bathrooms: Number(input.bathrooms) || 0, surface: Number(input.surface) || 0, description: clean(input.description, 2000), status: 'Pending', createdAt: new Date().toISOString() };
+        const now = new Date().toISOString();
+        const property = { id: crypto.randomUUID(), ownerId: user.id, title: clean(input.title, 120), type: clean(input.type, 40), listing: clean(input.listing, 40), price, commissionRate: 0.01, commissionAmount: Math.round(price * 0.01 * 100) / 100, commissionAcceptedAt: now, communicationAuthorized: true, communicationAuthorizedAt: now, ownerContactFirstRequired: true, directContactAllowed: false, agreementVersion: '1.1', wilaya: clean(input.wilaya, 80), area: clean(input.area, 80), bedrooms: Number(input.bedrooms) || 0, bathrooms: Number(input.bathrooms) || 0, surface: Number(input.surface) || 0, description: clean(input.description, 2000), status: 'Pending', createdAt: now };
         if (!property.title || !property.type || !property.wilaya || !property.description || property.price <= 0 || property.surface <= 0) return sendJson(response, 400, { error: 'Please complete the required property details.' });
         db.properties.push(property);
         await writeDb(db);

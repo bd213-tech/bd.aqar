@@ -2770,6 +2770,7 @@ select {
 .location-box span { display: block; }
 .location-box a { display: inline-block; margin-top: 8px; color: var(--gold); font-size: 12px; }
 .location-box a:hover { text-decoration: underline; }
+.contact-approval-note { margin-top: 12px; color: #667085; font-size: 11px; line-height: 1.5; }
 
 
 /* ================= SIDEBAR ================= */
@@ -3815,6 +3816,7 @@ select {
 .commission-check { display: flex !important; flex-direction: row !important; align-items: flex-start; gap: 10px; padding: 15px 17px; border: 1px solid #cfe3db; border-radius: 8px; background: #e9fbf4; color: #344f47 !important; font-weight: 400 !important; }
 .commission-check input { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--gold); }
 .commission-check strong { color: #16804b; }
+.authorization-check { background: #f5fbf9; }
 .form-actions { display: flex; justify-content: flex-end; gap: 12px; align-items: center; }
 .form-actions .secondary-btn { color: #344054; border-color: #cbd5e1; background: #fff; }
 .form-message { color: #16804b; font-weight: 700; text-align: right; min-height: 24px; }

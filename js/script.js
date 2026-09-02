@@ -67,6 +67,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const homeSearch = document.querySelector('.hero .search-box');
+    if (homeSearch) {
+        const tabs = homeSearch.querySelectorAll('.tab');
+        tabs.forEach((tab) => tab.addEventListener('click', () => {
+            tabs.forEach((item) => item.classList.remove('active'));
+            tab.classList.add('active');
+        }));
+        homeSearch.querySelector('.search-btn')?.addEventListener('click', () => {
+            const fields = homeSearch.querySelectorAll('.search-field');
+            const params = new URLSearchParams();
+            const location = fields[0]?.querySelector('input')?.value.trim();
+            const type = fields[1]?.querySelector('select')?.value;
+            const min = fields[2]?.querySelector('input')?.value;
+            const max = fields[3]?.querySelector('input')?.value;
+            const mode = homeSearch.querySelector('.tab.active')?.textContent.trim().toLowerCase();
+            if (location) params.set('location', location);
+            if (type && type !== 'All Types') params.set('type', type.toLowerCase());
+            if (min) params.set('min', min);
+            if (max) params.set('max', max);
+            if (mode) params.set('transaction', mode === 'buy' ? 'sale' : 'rent');
+            window.location.href = `properties.html?${params.toString()}`;
+        });
+    }
+
     const apiRequest = async (endpoint, options = {}) => {
         const response = await fetch(endpoint, { headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }, ...options });
         const data = await response.json();
@@ -209,6 +233,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const dashboard = document.querySelector('.dashboard-container');
+    if (dashboard) {
+        const token = sessionStorage.getItem('bd_aqar_token');
+        if (!token) {
+            window.location.href = 'login.html';
+            return;
+        }
+        Promise.all([
+            apiRequest('/api/me', { headers: { Authorization: `Bearer ${token}` } }),
+            apiRequest('/api/my-properties', { headers: { Authorization: `Bearer ${token}` } })
+        ]).then(([profile, listingData]) => {
+            const properties = listingData.properties || [];
+            const stats = dashboard.querySelectorAll('.dashboard-stats .stat-card h2');
+            const active = properties.filter((property) => property.status === 'Active').length;
+            const pending = properties.filter((property) => property.status === 'Pending').length;
+            if (stats[0]) stats[0].textContent = properties.length;
+            if (stats[1]) stats[1].textContent = active;
+            if (stats[2]) stats[2].textContent = pending;
+            const name = profile.user.firstName || 'Seller';
+            const welcome = dashboard.querySelector('.dashboard-header h1');
+            if (welcome) welcome.textContent = `Welcome back, ${name}`;
+            dashboard.querySelectorAll('.nav-user span').forEach((item) => { item.textContent = name; });
+        }).catch(() => {
+            sessionStorage.removeItem('bd_aqar_token');
+            window.location.href = 'login.html';
+        });
+        dashboard.querySelectorAll('.logout-link').forEach((logout) => logout.addEventListener('click', () => sessionStorage.removeItem('bd_aqar_token')));
+    }
+
     document.querySelectorAll('.property-filter').forEach((filter) => {
         filter.addEventListener('click', () => {
             document.querySelectorAll('.property-filter').forEach((item) => item.classList.remove('active'));
@@ -226,6 +279,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const transactionSelect = document.querySelector('#transaction');
         const minPrice = document.querySelector('.filter-group input[placeholder="Min price"]');
         const maxPrice = document.querySelector('.filter-group input[placeholder="Max price"]');
+        const query = new URLSearchParams(window.location.search);
+        if (locationInput) locationInput.value = query.get('location') || '';
+        if (typeSelect) typeSelect.value = query.get('type') || '';
+        if (transactionSelect) transactionSelect.value = query.get('transaction') || '';
+        if (minPrice) minPrice.value = query.get('min') || '';
+        if (maxPrice) maxPrice.value = query.get('max') || '';
         const applyFilters = () => {
             const location = (locationInput?.value || '').toLowerCase();
             const type = (typeSelect?.value || '').toLowerCase();
@@ -250,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.filter-group input').forEach((field) => { field.value = ''; });
             applyFilters();
         });
+        applyFilters();
     }
 
     const revealItems = document.querySelectorAll('.section, .ai-section, .cta, .trust-section, .contact-section, .property-card, .location-card, .step');
