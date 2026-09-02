@@ -126,7 +126,7 @@ async function api(request, response, url) {
         const user = db.users.find((candidate) => candidate.email === login || candidate.phone === input.login);
         if (!user || !(await verifyPassword(input.password || '', user.passwordHash))) return sendJson(response, 401, { error: 'Email/phone or password is incorrect.' });
         if (!user.phoneVerified || !user.emailVerified) return sendJson(response, 403, { error: 'Please verify your phone and email first.' });
-        return sendJson(response, 200, { message: 'Login successful.', token: tokenFor(user.id), user: { id: user.id, email: user.email, firstName: user.firstName } });
+        return sendJson(response, 200, { message: 'Login successful.', token: tokenFor(user.id), user: { id: user.id, email: user.email, firstName: user.firstName, accountType: user.accountType, role: user.role || user.accountType } });
     }
 
     if (request.method === 'POST' && url.pathname === '/api/request-password-reset') {
@@ -165,7 +165,7 @@ async function api(request, response, url) {
     if (request.method === 'GET' && url.pathname === '/api/me') {
         const user = authenticatedUser(request, db);
         if (!user) return sendJson(response, 401, { error: 'Authentication required.' });
-        return sendJson(response, 200, { user: { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, accountType: user.accountType } });
+        return sendJson(response, 200, { user: { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, accountType: user.accountType, role: user.role || user.accountType } });
     }
 
     if (request.method === 'GET' && url.pathname === '/api/my-properties') {
