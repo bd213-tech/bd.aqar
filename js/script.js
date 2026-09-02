@@ -119,6 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
         element.style.color = '#c0392b';
     };
 
+    const askForOtp = (message, demoCode) => new Promise((resolve) => {
+        const modal = document.createElement('div');
+        modal.className = 'otp-modal';
+        modal.innerHTML = `<div class="otp-card"><button type="button" class="otp-close" aria-label="Close">&times;</button><p class="section-label">SECURITY CHECK</p><h2>Verify your account</h2><p>${message}</p>${demoCode ? `<p class="otp-demo">Demo OTP: <strong>${demoCode}</strong></p>` : ''}<form><label>6-digit code<input name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autofocus></label><button class="primary-btn" type="submit">Verify OTP</button></form></div>`;
+        document.body.append(modal);
+        const close = (value) => { modal.remove(); resolve(value); };
+        modal.querySelector('.otp-close').addEventListener('click', () => close(null));
+        modal.querySelector('form').addEventListener('submit', (event) => { event.preventDefault(); close(modal.querySelector('[name="code"]').value); });
+        modal.querySelector('[name="code"]').focus();
+    });
+
     const fallbackImages = {
         'property1.jpg': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80',
         'property2.jpg': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80',
@@ -205,8 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (password !== confirmation) return window.alert('Passwords do not match.');
             try {
                 const data = await apiRequest('/api/register', { method: 'POST', body: JSON.stringify(Object.fromEntries(new FormData(registerForm))) });
-                const codeMessage = data.demoCode ? `${data.message}\nDemo OTP: ${data.demoCode}\nEnter the 6-digit code:` : `${data.message}\nEnter the 6-digit code you received:`;
-                const code = window.prompt(codeMessage);
+                const code = await askForOtp(data.message, data.demoCode);
                 if (!code) return;
                 const verified = await apiRequest('/api/verify-otp', { method: 'POST', body: JSON.stringify({ challengeId: data.challengeId, code }) });
                 sessionStorage.setItem('bd_aqar_token', verified.token);

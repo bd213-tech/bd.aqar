@@ -3979,6 +3979,18 @@ select {
 .bd-ai-suggestions button { color: var(--gold); border-color: rgba(32, 201, 151, .35); }
 .bd-ai-suggestions button:hover { background: #e9fbf4; }
 
+.otp-modal { position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center; padding: 18px; background: rgba(20, 53, 47, .62); }
+.otp-card { position: relative; width: min(420px, 100%); padding: 30px; border-radius: 12px; background: #ffffff; color: #14352f; box-shadow: 0 20px 60px rgba(0, 0, 0, .25); }
+.otp-card h2 { margin: 8px 0; font-size: 25px; }
+.otp-card > p:not(.section-label):not(.otp-demo) { color: #60766f; font-size: 14px; }
+.otp-card form { display: grid; gap: 15px; margin-top: 20px; }
+.otp-card label { display: grid; gap: 7px; color: #344f47; font-size: 13px; font-weight: 700; }
+.otp-card input { height: 48px; border: 1px solid #cfe3db; border-radius: 8px; padding: 0 13px; color: #14352f; font-size: 18px; letter-spacing: 3px; outline: 0; }
+.otp-card input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(32, 201, 151, .12); }
+.otp-card .primary-btn { border: 0; cursor: pointer; }
+.otp-demo { margin-top: 14px; padding: 10px 12px; border-radius: 7px; background: #e9fbf4; color: #16804b; font-size: 13px; }
+.otp-close { position: absolute; top: 12px; right: 14px; border: 0; background: transparent; color: #60766f; font-size: 25px; cursor: pointer; }
+
 /* =========================================
    INFORMATION PAGES
 ========================================= */
